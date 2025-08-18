@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    {% include '@components/head.twig' %}
+    <link rel="stylesheet" href="css/login.css"/>
+<body>
+    <form id="registerForm" action="">
+        <!-- Headings for the form -->
+        <div class="headingsContainer">
+            <h3>Sign up</h3>
+            <p>Create an account</p>
+        </div>
+
+        <!-- Main container for all inputs -->
+        <div class="mainContainer">
+            <!-- Password -->
+            <label for="name">Your Name</label>
+            <input type="text" placeholder="Enter Name" name="name" required>
+
+            <br><br>
+
+            <!-- Username -->
+            <label for="email">Your email</label>
+            <input type="email" placeholder="Enter Email" name="email" required>
+
+            <br><br>
+
+            <!-- Password -->
+            <label for="            <input type="password" placeholder="Enter Password" name="password" required>
+">Your password</label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+
+
+            <!-- Submit button -->
+            <button type="submit">Register</button>
+
+            <!-- Sign up link -->
+            <p class="register">Already a member?  <a href="/">login here!</a></p>
+
+        </div>
+
+    </form>
+    {% include '@components/footer.twig' %}
+    <script src="/js/includes/functions.js"></script>
+    <script src="/js/register.js"></script>
+</body>
+</html>

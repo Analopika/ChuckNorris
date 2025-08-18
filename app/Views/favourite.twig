@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    {% include '@components/head.twig' %}
+<body>
+    {% include '@components/header.twig' %}
+    <div class="container">
+        <div class="d-flex justify-content-center align-items-center">
+            <h1 class="mt-2">Here is a list of your favourite jokes.</h1>
+        </div>
+        <div id="joke_card" class="card mt-5">
+            <div class="d-flex flex-column justify-content-center align-items-center gap-4">
+                <div id="jokes" class="card d-flex flex-column gap-5 p-5">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include '@components/footer.twig' %}
+    <script src="/js/includes/functions.js"></script>
+    <script src="/js/favourite.js"></script>
+</body>
+</html>
