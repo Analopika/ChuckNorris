@@ -39,8 +39,10 @@ $twig->addExtension(new \Twig\Extension\DebugExtension());
 
 $app->add(TwigMiddleware::create($app, $twig));
 
+$apiRouter = require __DIR__ . '/../app/Routes/api.php';
 $router = require __DIR__ . '/../app/Routes/web.php';
 
+$apiRouter($app);
 $router($app, $twig);
 
 $errorMiddleware = $app->addErrorMiddleware(true, true, true);

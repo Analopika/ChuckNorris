@@ -28,7 +28,7 @@ class Login {
 
         let data = getFormData(e, dto, additionalData)
         // data = JSON.stringify(data);
-        let request = await fetch(`http://localhost:3000/api/v1/login`, {
+        let request = await fetch(`/api/v1/login`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -37,7 +37,7 @@ class Login {
         })
 
         let response = await request.json();
-        if(response.status == 401 || response.status == 400){
+        if(response.status == 401 || response.status == 400 || response.status == 500){
             alert(response.error);
             return;
         }

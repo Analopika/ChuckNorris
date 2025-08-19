@@ -5,8 +5,34 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: slim_client_app
+    container_name: chuck_app
     ports:
       - "8080:80"
     volumes:
       - ./:/var/www/html
+    environment:
+      - DB_HOST=db
+      - DB_NAME=chucknorris_db
+      - DB_USER=chuck_user
+      - DB_PASSWORD=root@root_db67
+    depends_on:
+      - db
+    command: sh -c "until nc -z db 3306; do echo 'Waiting for MySQL...'; sleep 2; done; echo 'MySQL is up - starting Apache'; apache2-foreground"
+
+  db:
+    image: mysql:8.0
+    container_name: chuck_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: chucknorris_db
+      MYSQL_USER: chuck_user
+      MYSQL_PASSWORD: root@root_db67
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+volumes:
+  db_data:

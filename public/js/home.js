@@ -56,7 +56,7 @@ class Home {
 
             data = JSON.stringify(data);
 
-            let request = await fetch('http://localhost:3000/api/v1/joke', {
+            let request = await fetch('/api/v1/joke', {
                 method: 'PATCH',
                 headers: {
                     'Content-type': 'application/json',
@@ -68,13 +68,13 @@ class Home {
             let response = await request.json();
         
             if(response.status === 200){
-                alert('Joke Successfully Liked!')
+                toastr.success('Joke Successfully Liked!')
             }
             else{
-                alert("Oops. Something went wrong Liking the joke!");
+                toastr.error("Oops. Something went wrong Liking the joke!");
             }
         } catch (error) {
-            alert(error);
+            toastr.error(error);
         }
         
     }
@@ -110,12 +110,12 @@ class Home {
                     return data;
                 }
                 else{
-                    alert("Oops. Something Went Wrong!")
+                    toastr.error("Oops. Something Went Wrong!")
                 }
             })
         })
         .catch(error => {
-            alert(error);
+            toastr.error(error);
         })
     }
 
@@ -132,11 +132,11 @@ class Home {
                 this.showJoke(response);
                 this.postJoke();
             } else {
-                alert("Oops. Something went wrong!");
+                toastr.error("Oops. Something went wrong!");
             }
         })
         .catch(error => {
-            alert(error.message);
+            toastr.error(error.message);
         });
     }
 
@@ -150,7 +150,7 @@ class Home {
 
         data = JSON.stringify(data);
 
-        let request = await fetch(`http://localhost:3000/api/v1/joke`, {
+        let request = await fetch(`/api/v1/joke`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -165,19 +165,19 @@ class Home {
             window.location = "/"
         }
         else if(response.status == 400) {
-            alert(response.error);
+            toastr.error(response.error);
             return;
         }
         else if(response.status == 201) {
-            alert(response.message);
+            toastr.success(response.message);
             return;
         }
         else if(response.status == 200){
-            alert("You've seen this one before!");
+            toastr.info("You've seen this one before!");
             return;
         }
         else {
-            alert(response.error);
+            toastr.error(response.error);
             return;
         }
     }

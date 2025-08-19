@@ -28,7 +28,7 @@ class Register {
 
         let data = getFormData(e, dto, additionalData)
 
-        let request = await fetch(`http://localhost:3000/api/v1/register`, {
+        let request = await fetch(`/api/v1/register`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -38,8 +38,8 @@ class Register {
 
         let response = await request.json();
 
-        if(response.status === 401 || response.status === 400){
-            alert(response.error);
+        if(response.status == 401 || response.status == 400 || response.status == 500){
+            toastr.error(response.error);
             return;
         }
 

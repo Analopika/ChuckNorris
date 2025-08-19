@@ -19,7 +19,7 @@ class Favourite {
 
     initialize() {
 
-        this.jokes = this.getData(`http://localhost:3000/api/v1/joke/${this.user_id}`).then(response =>{
+        this.jokes = this.getData(`/api/v1/joke/${this.user_id}`).then(response =>{
             this.populateJokes(response);
         }
         );
@@ -28,13 +28,12 @@ class Favourite {
     async populateJokes(data) {
         let jokes = await data;
         jokes = jokes.data;
-         $('#jokes').append(`<ul>`)
+        jokes = jokes.filter(j => j.favourite == 1);
         jokes.forEach(joke => {
             $('#jokes').append(`
-                <li>${joke.text}</li>
+                <li class="pb-3">${joke.text}</li>
                 `)
         });
-        $('#jokes').append(`</ul>`)
     }
 
 
@@ -50,13 +49,16 @@ class Favourite {
                 if(response.status === 200){
                     return data;
                 }
+                else if(response.status == 401){
+                    window.location = "/"
+                }
                 else{
-                    alert("Oops. Something Went Wrong!")
+                    toastr.error("Oops. Something Went Wrong!")
                 }
             })
         })
         .catch(error => {
-            alert(error);
+            toastr.error(error);
         })
     }
 }

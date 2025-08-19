@@ -8,7 +8,7 @@
 
  use Psr\Http\Message\ResponseInterface as Response;
  use Psr\Http\Message\ServerRequestInterface as Request;
-//  use App\Middleware;
+ use App\Middleware;
  use Slim\App;
  use Slim\Views\Twig;
 
