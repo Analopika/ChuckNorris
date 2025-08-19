@@ -1,5 +1,5 @@
 
-#  <font color="white">staging.humeint.africa  *v1.5*</font> 
+#  <font color="white">Chuck Norris</font> 
 <br>
 
 > ## <font color="white">Tech stack</font>: 
@@ -10,18 +10,11 @@
 > - [JQuery v3.7.1](https://api.jquery.com/)
 >
 > ### <ins> <font color="white">Languages</font></ins>: 
-> - [Bash](#)
 > - [PHP 8.2](#)
 > - [JavaScript](#)
 > - [HMTL5](#)
 > - [CSS3](#)
 >
-> ### <ins> <font color="white">Infra</font></ins>: 
-> - [Linux Debian 11 “Bullseye”](https://www.debian.org/releases/bullseye/)
-> - [Mysql 8.0](https://dev.mysql.com/doc/refman/8.0/en/)
-> - [SQLite](https://www.sqlite.org/docs.html)
-> - [BitBucket pipelines](https://bitbucket.org/)
-> - [DigitalOcean (CDN, S3)](https://docs.digitalocean.com/)
 >
 
 <br>
