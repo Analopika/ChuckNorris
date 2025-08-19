@@ -14,7 +14,7 @@ env:
 
 build: clean composer env
 	@docker compose up --build -d
-	@echo "🚀 Build completed and containers are running"
+	@echo "🚀 Build completed and containers are running. Access the application on https://localhost:8080"
 
 start:
 	@docker compose start
